@@ -193,11 +193,22 @@ body {
     }
 
     h6 {
-      font-size: 3.3vw;
+      font-size: 3.2vw;
       left: 5%;
-      top: 57%;
+      top: 55%;
       font-weight: 100;
       z-index: 9999;
+      // opacity: 1;
+    }
+  }
+}
+
+
+// for iphone se screens
+@media (max-width: 375px){
+  .loader{
+    h6 {
+      top: 65%;
     }
   }
 }
