@@ -1,0 +1,203 @@
+@font-face {
+  font-family: plain-light;
+  src: url(./fonts/plain-light-webfont.woff);
+}
+
+@font-face {
+  font-family: plain-regular;
+  src: url(./fonts/plain-regular-webfont.woff);
+}
+
+@font-face {
+  font-family: silk-light;
+  src: url(./fonts/silkserif-lightitalic-webfont.woff);
+}
+
+@font-face {
+  font-family: silk-regular;
+  src: url(./fonts/silkserif-regularitalic-webfont.woff);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: plain-light;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.loader {
+  height: 100%;
+  width: 100%;
+  background-color: #0b0b0b;
+  padding-top: 12.5vw;
+  padding-left: 6vw;
+  position: absolute;
+  z-index: 9998;
+  // cursor: none;
+
+  .text-line {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    overflow: hidden;
+
+    .loading-counter {
+      width: fit-content;
+      display: flex;
+      height: fit-content;
+      align-items: first baseline;
+      height: fit-content;
+      margin-left: 3.7vw;
+      margin-right: 4vw;
+      margin-bottom: 2.2vw;
+      gap: 2vw;
+      opacity: 1;
+
+      h4,
+      h5 {
+        font-family: silk-regular;
+        font-size: 2.7vw;
+        line-height: 1;
+      }
+
+      h4 {
+        width: 3.3vw;
+        text-align: right;
+      }
+    }
+
+    h1 {
+      font-size: 7.5vw;
+      line-height: 1;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.1vw;
+    }
+  }
+
+  h6 {
+    font-size: 1vw;
+    font-family: plain-light;
+    position: absolute;
+    left: 29%;
+    top: 70%;
+    opacity: 0;
+  }
+}
+
+.main {
+  width: 100%;
+  position: relative;
+}
+
+.page1 {
+  height: 100vh;
+  width: 100%;
+  background-color: #151515;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  .loader {
+    padding-top: 80vw;
+    padding-left: 5vw;
+    // cursor: none;
+
+    .text-line {
+      flex-direction: column;
+      align-items: start;
+      gap: 2vw;
+
+      .loading-counter {
+        align-items: first baseline;
+        margin: 0;
+
+        h4,
+        h5 {
+          font-size: 4.5vw;
+        }
+
+        h5{
+          margin-left: 4vw;
+        }
+      }
+
+      h1 {
+        font-size: 7.3vw;
+      }
+    }
+
+    h6 {
+      font-size: 3.3vw;
+      left: 5%;
+      top: 57%;
+      font-weight: 100;
+      z-index: 9999;
+    }
+  }
+}
