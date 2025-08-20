@@ -26,6 +26,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background-color: #151515;
 }
 
 .loader {
@@ -34,8 +35,9 @@ body {
   background-color: #0b0b0b;
   padding-top: 12.5vw;
   padding-left: 6vw;
-  position: absolute;
-  z-index: 9998;
+  position: fixed;
+  z-index: 9999999;
+  display: none !important;
 }
 .loader .text-line {
   display: flex;
@@ -86,12 +88,648 @@ body {
 .main {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .page1 {
-  height: 100vh;
+  min-height: 55vw;
   width: 100%;
   background-color: #151515;
+}
+.page1 nav {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  padding: 0 5.5vw;
+  padding-top: 3.8vw;
+  justify-content: space-between;
+}
+.page1 nav .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2.5vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: fixed;
+}
+.page1 nav .nav-right {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 22.5vw;
+}
+.page1 nav .nav-right h4 {
+  font-size: 1.05vw;
+  line-height: 1;
+}
+.page1 nav .nav-right .nav2 {
+  display: flex;
+  gap: 2.6vw;
+}
+.page1 .line {
+  width: 72%;
+  padding-left: 27vw;
+  position: relative;
+}
+.page1 .line:nth-child(2) {
+  margin-top: 18vh;
+}
+.page1 .line:nth-child(2)::before {
+  content: "01";
+  font-family: silk-light;
+  position: absolute;
+  font-size: 3vw;
+  line-height: 1;
+  top: 0.9vw;
+  left: 19.1vw;
+}
+.page1 .line:nth-child(4) {
+  display: flex;
+  width: 100%;
+}
+.page1 .line h1 {
+  font-size: 7.52vw;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.page1 .line h1 span::after {
+  content: "";
+  position: absolute;
+  bottom: -8%;
+  height: 0.6vw;
+  left: 0;
+  background-color: #fff;
+  width: 14.5vw;
+}
+.page1 .line h1 span:hover {
+  -webkit-text-stroke: 0.1vw #fff;
+  color: transparent;
+  font-weight: 100;
+}
+.page1 .line h1 span:hover::after {
+  opacity: 0;
+}
+.page1 .line h1 .web::after {
+  left: 27vw;
+  width: 15.5vw;
+}
+.page1 .line h1 .grpc::after {
+  left: 44.5vw;
+  width: 34.8vw;
+}
+
+.page1-extension {
+  min-height: 90vh;
+  width: 100%;
+  padding-top: 0.1px;
+  background-color: transparent;
+  position: relative;
+  padding-left: 27.8vw;
+}
+.page1-extension .video-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(./imgs/Showreel-2022-preview-1.jpg);
+  width: 72.2vw;
+  height: 34.3vw;
+  margin-top: 7.5vw;
+  position: relative;
+  cursor: none;
+}
+.page1-extension .video-container .play-btn {
+  background-color: #ffa63d;
+  height: 11vw;
+  width: 11vw;
+  position: absolute;
+  right: 15%;
+  top: -15%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page1-extension .video-container .play-btn i {
+  font-size: 3vw;
+}
+.page1-extension .video-container video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  opacity: 0;
+}
+
+.page2 {
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 5.5vw;
+}
+.page2 .top {
+  padding-left: 27.8vw;
+  padding-top: 5.8vw;
+  position: relative;
+}
+.page2 .top h1 {
+  font-size: 7.52vw;
+  line-height: 1;
+  text-transform: uppercase;
+  position: relative;
+}
+.page2 .top h1::before {
+  content: "02";
+  font-family: silk-light;
+  position: absolute;
+  font-size: 3vw;
+  line-height: 1;
+  top: 10%;
+  left: -13.2%;
+}
+.page2 .top .underline {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  margin: 6.2vw 0;
+}
+.page2 .project-showcase {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.page2 .project-showcase .part1 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4vw;
+  width: 26.5%;
+  position: relative;
+}
+.page2 .project-showcase .part1 .project {
+  width: 100%;
+  position: relative;
+  height: 43vw;
+}
+.page2 .project-showcase .part1 .project h3 {
+  font-size: 3vw;
+  font-weight: 1;
+  text-transform: uppercase;
+  margin-bottom: 2.5vw;
+}
+.page2 .project-showcase .part1 .project .image-holder {
+  width: 100%;
+  height: 30vw;
+  position: relative;
+}
+.page2 .project-showcase .part1 .project .image-holder img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.page2 .project-showcase .part1 .project .detail {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.2vw 0;
+}
+.page2 .project-showcase .part1 .project .detail h5 {
+  font-size: 1.1vw;
+  line-height: 1;
+}
+.page2 .project-showcase .part1 .project .detail .desc-text {
+  width: 50%;
+}
+.page2 .project-showcase .part1 .project .line {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page2 .project-showcase .part1 .svg-holder {
+  padding-top: 4vw;
+  height: 39vw;
+  width: 100%;
+  position: relative;
+}
+.page2 .project-showcase .part1 .svg-holder .svg-circle {
+  height: 23.6vw;
+  aspect-ratio: 1/1;
+  position: relative;
+  border: 0.1vw solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.page2 .project-showcase .part1 .svg-holder .svg-circle svg {
+  height: 7.65vw;
+  aspect-ratio: 1/1;
+}
+.page2 .project-showcase .part1 .svg-holder svg {
+  transform: rotate(-40deg);
+}
+.page2 .project-showcase .part2 {
+  min-height: 100vh;
+  width: 35%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10vw;
+}
+.page2 .project-showcase .part2 .project {
+  width: 100%;
+  position: relative;
+  height: 52vw;
+}
+.page2 .project-showcase .part2 .project h3 {
+  font-size: 3vw;
+  font-weight: 1;
+  text-transform: uppercase;
+  margin-bottom: 2.5vw;
+}
+.page2 .project-showcase .part2 .project .image-holder {
+  width: 100%;
+  height: 39vw;
+  position: relative;
+}
+.page2 .project-showcase .part2 .project .image-holder img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.page2 .project-showcase .part2 .project .detail {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.2vw 0;
+}
+.page2 .project-showcase .part2 .project .detail h5 {
+  font-size: 1.1vw;
+  line-height: 1;
+}
+.page2 .project-showcase .part2 .project .detail .desc-text {
+  width: 50%;
+}
+.page2 .project-showcase .part2 .project .line {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page2 .project-showcase .part2 .svg-holder {
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+  padding-bottom: 2vw;
+  height: 41vw;
+  width: 100%;
+  position: relative;
+}
+.page2 .project-showcase .part2 .svg-holder .svg-circle {
+  height: 23.6vw;
+  aspect-ratio: 1/1;
+  position: relative;
+  border: 0.1vw solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.page2 .project-showcase .part2 .svg-holder .svg-circle svg {
+  height: 7.65vw;
+  aspect-ratio: 1/1;
+}
+.page2 .project-showcase .part2 .svg-holder svg {
+  transform: rotate(-90deg);
+}
+.page2 .project-showcase .part3 {
+  min-height: 100vh;
+  width: 35%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.page2 .project-showcase .part3 .project {
+  width: 100%;
+  position: relative;
+  height: 52vw;
+}
+.page2 .project-showcase .part3 .project h3 {
+  font-size: 3vw;
+  font-weight: 1;
+  text-transform: uppercase;
+  margin-bottom: 2.5vw;
+}
+.page2 .project-showcase .part3 .project .image-holder {
+  width: 100%;
+  height: 39vw;
+  position: relative;
+}
+.page2 .project-showcase .part3 .project .image-holder img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.page2 .project-showcase .part3 .project .detail {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.2vw 0;
+}
+.page2 .project-showcase .part3 .project .detail h5 {
+  font-size: 1.1vw;
+  line-height: 1;
+}
+.page2 .project-showcase .part3 .project .detail .desc-text {
+  width: 50%;
+}
+.page2 .project-showcase .part3 .project .line {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.page2 .project-showcase .part3 .svg-holder {
+  display: flex;
+  align-items: last baseline;
+  justify-content: center;
+  padding-bottom: 2vw;
+  height: 51vw;
+  width: 100%;
+  position: relative;
+}
+.page2 .project-showcase .part3 .svg-holder .svg-circle {
+  height: 23.6vw;
+  aspect-ratio: 1/1;
+  position: relative;
+  border: 0.1vw solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.page2 .project-showcase .part3 .svg-holder .svg-circle svg {
+  height: 7.65vw;
+  aspect-ratio: 1/1;
+}
+.page2 .wrap-circle {
+  min-height: 60vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 8vw;
+}
+.page2 .wrap-circle .w-circle {
+  height: 23.6vw;
+  aspect-ratio: 1/1;
+  background-color: #FFA63D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page2 .wrap-circle .w-circle h6 {
+  font-size: 1.1vw;
+  font-family: plain-regular;
+}
+.page2 .wrap-circle .w-circle h6 span {
+  font-family: silk-light;
+}
+
+.page3 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #151515;
+  position: relative;
+  padding-bottom: 30vw;
+}
+.page3 .top {
+  padding-left: 27.8vw;
+  padding-top: 5.8vw;
+  padding-right: 5.5vw;
+  position: relative;
+}
+.page3 .top h1 {
+  font-size: 7.52vw;
+  line-height: 1;
+  text-transform: uppercase;
+  position: relative;
+}
+.page3 .top h1::before {
+  content: "03";
+  font-family: silk-light;
+  position: absolute;
+  font-size: 3vw;
+  line-height: 1;
+  top: 10%;
+  left: -13.2%;
+}
+.page3 .top .underline-1 {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  margin-top: 6.2vw;
+}
+.page3 .top p {
+  font-size: 2.4vw;
+  line-height: 2.8vw;
+  width: 60%;
+  margin: 4.5vw 0;
+}
+.page3 .top .photo-holder {
+  display: flex;
+  gap: 2vw;
+}
+.page3 .top .photo-holder .pic {
+  width: 49%;
+  height: 40vw;
+  background-image: url(./imgs/photo-holder.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page3 .top .photo-holder p {
+  font-size: 1vw;
+  z-index: 9999;
+  line-height: 1.2vw;
+  width: 27%;
+  margin-top: 0vw;
+  text-align: start;
+}
+.page3 .top .blue-div {
+  height: 47vw;
+  width: 32.5vw;
+  position: relative;
+  background-color: #3f7df4;
+  left: 23vw;
+  top: -15.5vw;
+  z-index: 99999;
+  padding: 3.7vw;
+  padding-bottom: 4.2vw;
+}
+.page3 .top .blue-div .positions {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1vw solid #fff;
+}
+.page3 .top .blue-div .positions h4 {
+  font-size: 1.6vw;
+  font-weight: 100;
+  width: 50%;
+  margin: 2.7vw 0;
+}
+.page3 .top .blue-div .positions p {
+  font-size: 1.1vw;
+  line-height: 1;
+  margin: 0;
+  width: 40%;
+  margin-top: 3.5vw;
+}
+.page3 .top .underline-2 {
+  height: 0.1vw;
+  width: 100%;
+  background-color: #fff;
+  margin: 0;
+  margin-top: -4vw;
+}
+.page3 .top .work-text {
+  font-size: 1vw;
+  margin-top: 1vw;
+  font-weight: 600;
+}
+.page3 .marquee {
+  width: 100%;
+  pointer-events: none;
+}
+.page3 .marquee .elem {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  height: 10vw;
+}
+.page3 .marquee .elem::-webkit-scrollbar-thumb {
+  display: none;
+}
+.page3 .marquee .elem h2 {
+  font-size: 8vw;
+  line-height: 1;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 200;
+  -webkit-text-stroke: 0.1vw white;
+  color: transparent;
+  animation: marqueeAnimation 25s linear infinite;
+}
+.page3 .marquee .elem h2 span {
+  -webkit-text-stroke: 0.1vw white;
+  color: transparent;
+  display: inline;
+  font-family: silk-light;
+}
+.page3 .marquee .l2r h2 {
+  animation-direction: reverse;
+  transform: translateX(-100%);
+}
+@keyframes marqueeAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.page4 {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #151515;
+  position: relative;
+  padding-bottom: 7vw;
+}
+.page4 .aligned-box {
+  padding-left: 27.8vw;
+  padding-top: 5.8vw;
+  padding-right: 5.5vw;
+  position: relative;
+}
+.page4 .aligned-box .heading {
+  display: flex;
+  align-items: center;
+}
+.page4 .aligned-box .heading::before {
+  content: "04";
+  font-family: silk-light;
+  position: absolute;
+  font-size: 3vw;
+  line-height: 1;
+  top: 12.8%;
+  left: 18.3%;
+  z-index: 9999;
+  color: white;
+}
+.page4 .aligned-box .heading h1 {
+  font-size: 7.52vw;
+  width: 52vw;
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+.page4 .aligned-box .heading svg {
+  height: 5vw;
+  margin-top: 0.2vw;
+}
+.page4 .aligned-box .heading:hover h1 {
+  font-family: silk-light;
+  line-height: 1;
+  width: 55vw;
+  font-weight: 100;
+  color: transparent;
+  -webkit-text-stroke: 0.1vw #fff;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+}
+.page4 .aligned-box .center-div {
+  width: 100%;
+  height: 30vw;
+  display: flex;
+  align-items: center;
+  margin-top: 6.5vw;
+  border-top: 0.1vw solid #fff;
+  border-bottom: 0.1vw solid #fff;
+}
+.page4 .aligned-box .center-div .info {
+  height: 100%;
+  width: 33.33%;
+  padding: 7vw 0;
+}
+.page4 .aligned-box .center-div .info h5 {
+  font-weight: 900;
+  font-size: 1.05vw;
+  margin-bottom: 2vw;
+}
+.page4 .aligned-box .center-div .info h4 {
+  font-size: 1.75vw;
+  line-height: 1.8vw;
+}
+.page4 .aligned-box p {
+  margin-top: 2vw;
+  margin-bottom: -2vw;
 }
 
 @media (max-width: 600px) {
