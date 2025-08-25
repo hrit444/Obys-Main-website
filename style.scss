@@ -26,6 +26,7 @@
     width: 100%;
     height: $ih;
     position: relative;
+    overflow: hidden;
 
     img {
       // display: none;
@@ -63,6 +64,8 @@
   height: $h;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
 
   .svg-circle {
     height: 23.6vw;
@@ -117,6 +120,19 @@ body {
   // background-color: blue;
 }
 
+body {
+  cursor: none;
+}
+.main {
+  width: 100%;
+  position: relative;
+}
+
+._canvas_container {
+  z-index: 999999 !important;
+  pointer-events: none;
+}
+
 .loader {
   height: 100%;
   width: 100%;
@@ -125,8 +141,8 @@ body {
   padding-left: 6vw;
   position: fixed;
   z-index: 9999999;
-  display: none !important;
-  // cursor: none;
+  // display: none !important;
+  cursor: none;
 
   .text-line {
     display: flex;
@@ -184,6 +200,35 @@ body {
   overflow: hidden;
 }
 
+.c-crsr {
+  height: 2.3vw;
+  width: 2.3vw;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.17vw solid rgb(206, 206, 206);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+}
+
+#behindmouse {
+  height: 2.3vw;
+  width: 2.3vw;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.17vw solid rgba(206, 206, 206, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+}
+
 .page1 {
   min-height: 55vw;
   width: 100%;
@@ -226,6 +271,7 @@ body {
   }
 
   .line {
+    // background-color: red;
     width: 72%;
     padding-left: 27vw;
     // overflow: hidden;
@@ -260,7 +306,7 @@ body {
         &::after {
           content: "";
           position: absolute;
-          bottom: -8%;
+          bottom: 0%;
           height: 0.6vw;
           left: 0;
           background-color: #fff;
@@ -293,40 +339,24 @@ body {
     }
   }
 
-  // .video-container {
-  //   @include imageCenter();
-  //   background-image: url(./imgs/Showreel-2022-preview-1.jpg);
-  //   width: 72.2vw;
-  //   height: 34.3vw;
-  //   margin-top: 7.5vw;
-  //   position: relative;
-  //   cursor: none;
+  #flagLine {
+    height: 8.4vw;
+    // background-color: red;
+  }
 
-  //   .play-btn {
-  //     background-color: #ffa63d;
-  //     height: 11vw;
-  //     width: 11vw;
-  //     position: absolute;
-  //     right: 15%;
-  //     top: -15%;
-  //     border-radius: 50%;
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: center;
+  #lastLine {
+    overflow: hidden;
+  }
 
-  //     i {
-  //       font-size: 3vw;
-  //     }
-  //   }
-
-  //   video {
-  //     height: 100%;
-  //     width: 100%;
-  //     object-fit: cover;
-  //     object-position: center;
-  //     opacity: 0;
-  //   }
-  // }
+  .img-flag {
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    left: -8%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+  }
 }
 
 .page1-extension {
@@ -345,14 +375,14 @@ body {
     height: 34.3vw;
     margin-top: 7.5vw;
     position: relative;
-    cursor: none;
+    // cursor: none;
 
     .play-btn {
       background-color: #ffa63d;
       height: 11vw;
       width: 11vw;
       position: absolute;
-      right: 15%;
+      left: 65%;
       top: -15%;
       border-radius: 50%;
       display: flex;
@@ -368,7 +398,6 @@ body {
       height: 100%;
       width: 100%;
       object-fit: cover;
-      object-position: center;
       opacity: 0;
     }
   }
@@ -378,6 +407,7 @@ body {
   min-height: 100vh;
   width: 100%;
   padding: 0 5.5vw;
+  // display: none !important;
 
   .top {
     padding-left: 27.8vw;
@@ -409,80 +439,114 @@ body {
 
   .project-showcase {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    gap: 2vw;
+    grid-template-areas:
+      "ig1 ig2 sv1"
+      "sv2 ig3 ig4"
+      "ig5 sv3 ig6";
 
-    .part1 {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      gap: 4vw;
-      width: 26.5%;
+    .project {
       position: relative;
-      
+    }
 
-      .project {
-        @include project-div(43vw, 30vw);
+    #ig1,
+    #ig5 {
+      @include project-div(43vw, 30vw);
+      width: 23vw;
+    }
+
+    #ig2,
+    #ig3,
+    #ig4,
+    #ig6 {
+      @include project-div(43vw, 37vw);
+      width: 30.5vw;
+      height: 50vw;
+    }
+
+    .svg-holder {
+      padding-top: 4vw;
+      @include arrow(39vw);
+
+      .cin {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+
+        p {
+          color: #000;
+          font-weight: 600;
+        }
       }
 
-      .svg-holder {
-        padding-top: 4vw;
-        @include arrow(39vw);
-        svg{
-          transform: rotate(-40deg);
-        }
+      .svg-circle:hover .cin {
+        transform: translate(-50%, -50%) scale(1);
+        transition: 0.5s ease;
       }
     }
 
-    .part2 {
-      min-height: 100vh;
-      width: 35%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 10vw;
+    #ig1 {
+      grid-area: ig1;
+    }
 
-      .project {
-        @include project-div(52vw, 39vw);
-      }
+    #ig2 {
+      grid-area: ig2;
+    }
 
-      .svg-holder {
-        display: flex;
-        justify-content: center;
-        align-items:last baseline;
-        padding-bottom: 2vw;
-        @include arrow(41vw);
+    #ig3 {
+      grid-area: ig3;
+      margin-top: 7vw;
+    }
 
-        
-        svg{
-          transform: rotate(-90deg);
-        }
+    #ig4 {
+      grid-area: ig4;
+    }
 
+    #ig5 {
+      grid-area: ig5;
+      margin-top: -5vw;
+    }
+
+    #ig6 {
+      grid-area: ig6;
+      margin-top: 5vw;
+    }
+
+    #sv1 {
+      grid-area: sv1;
+      padding-top: 27vw;
+    }
+
+    #sv2 {
+      grid-area: sv2;
+      svg {
+        transform: rotate(-40deg);
       }
     }
 
-    .part3 {
-      min-height: 100vh;
-      width: 35%;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-
-      .project {
-        @include project-div(52vw, 39vw);
-      }
-
-      .svg-holder {
-        display: flex;
-        align-items:last baseline;
-        justify-content: center;
-        padding-bottom: 2vw;
-        @include arrow(51vw);
+    #sv3 {
+      grid-area: sv3;
+      padding-top: 31vw;
+      svg {
+        transform: rotate(-90deg);
       }
     }
   }
 
-  .wrap-circle{
+  .wrap-circle {
     min-height: 60vw;
     width: 100%;
     display: flex;
@@ -490,22 +554,27 @@ body {
     justify-content: center;
     padding-right: 8vw;
 
-    .w-circle{
+    .w-circle {
       height: 23.6vw;
       aspect-ratio: 1/1;
-      background-color: #FFA63D;
+      background-color: #ffa63d;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
 
-      h6{
+      h6 {
         font-size: 1.1vw;
         font-family: plain-regular;
 
-        span{
+        span {
           font-family: silk-light;
         }
+      }
+
+      &:hover {
+        transform: scale(0.85);
+        transition: all 0.3s ease;
       }
     }
   }
